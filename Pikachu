@@ -31,6 +31,7 @@ class Enemy:
             print("HP:" + str(self.health))
             print("攻擊力:" + str(self.strength))
             print("防禦力:" + str(self.defense))
+            print("")
 
         else:
             print("跑不了...")
