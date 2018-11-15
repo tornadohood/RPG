@@ -13,7 +13,7 @@ class Enemy:
     def attack_enemy(self):
         time.sleep(1)
         print ("你要使用什麼攻擊? (1.火攻 2.水攻 3.雷攻 4.逃跑 5.透視）")
-        print("")
+        print("___________________________________________________")
         answer = input()
 
         if answer == "1":
@@ -27,11 +27,13 @@ class Enemy:
             self.health = int(self.health)
         elif answer == "4":
             print("正在戰鬥中...不能跑")
+            print("___________________________________________________")
         elif answer == "5":
+            print("形態:" + str(self.name))
             print("HP:" + str(self.health))
             print("攻擊力:" + str(self.strength))
             print("防禦力:" + str(self.defense))
-            print("")
+            print("___________________________________________________")
 
         else:
             print("跑不了...")
@@ -113,7 +115,7 @@ class Enemy:
 
 
 enemies = [Enemy("皮卡丘", 10, 5, 100), Enemy("皮卡丘", 20, 10, 100), Enemy("皮卡丘", 30, 20, 100), Enemy ("皮卡丘", 40, 30, 130)]
-#enemies = [Enemy("皮卡丘", 10, 5, 100), Enemy("快龍", 20, 10, 100), Enemy("頭痛鴨", 30, 20, 100), Enemy ("雷丘", 40, 30, 130)]
 
 random_enemy = random.choice(enemies)
 random_enemy.battle_script()
+
