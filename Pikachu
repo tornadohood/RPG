@@ -20,16 +20,16 @@ class Enemy:
         global player_health
         time.sleep(1)
         print ("你接下來要作什麼? (1.攻擊 2.背包 3.寶可夢 4.逃跑）")
-        print("___________________________________________________")
+        print("______________________________________________")
         answer = input()
 
         if answer == "1":
             print("你要使用什麼攻擊? (1.火攻 2.水攻 3.雷攻 4.透視)")
-            print("___________________________________________________")
+            print("__________________________________________ ")
             answer = input()
 
             if answer == "1":
-                self.health = self.health - (random.randint(1000, 2000) / (random.uniform(0, 1) * self.defense))
+                self.health = self.health - (random.randint(100, 300) / (random.uniform(0, 1) * self.defense))
                 self.health = int(self.health)
 
             elif answer == "2":
@@ -337,22 +337,23 @@ class Enemy:
             time.sleep(1)
             print ("獲得經驗值 " + str(random.randint(80, 140)))
             time.sleep(1)
-            print("獲得金幣 " + str(random.randint(10, 50)))
+            print("獲得金幣 $" + str(random.randint(10, 50)))
             time.sleep(1)
-            print("獲得超級寶貝球")
+            print("獲得超級寶貝球 x 1")
             time.sleep(60)
             print("")
 
         if player_health <= 0:
             pygame.mixer.init()
-            pygame.mixer.music.load("/Users/kchee/Desktop/pokemon/sound/victory.mp3")
+            pygame.mixer.music.load("/Users/kchee/Desktop/pokemon/sound/lose.mp3")
             pygame.mixer.music.play(-1)
             time.sleep(1)
             print ("你輸了")
+            time.sleep(60)
+            print("")
 
 
 enemies = [Enemy("傑尼龜", 10, 5, 100), Enemy("喷火龙", 20, 10, 100), Enemy("雷丘", 30, 20, 100), Enemy ("火焰猴", 40, 30, 130)]
 
 random_enemy = random.choice(enemies)
 random_enemy.battle_script()
-
