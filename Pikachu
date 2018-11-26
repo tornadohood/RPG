@@ -80,7 +80,7 @@ class Enemy:
 
             if answer == "1":
                 pygame.init()
-                crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/potion2.wav')
+                crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/potion.wav')
                 crash.play()
 
                 player_health = player_health + 50
@@ -88,7 +88,7 @@ class Enemy:
 
             if answer == "2":
                 pygame.init()
-                crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/potion2.wav')
+                crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/potion.wav')
                 crash.play()
 
                 player_health = player_health + 100
@@ -166,6 +166,11 @@ class Enemy:
         time.sleep(1)
 
         if self.health >= 50:
+
+            pygame.init()
+            crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/lighting.wav')
+            crash.play()
+
             print ("寶可夢 " + self.name + " " + "使用雷擊...")
             print("")
             player_health = player_health - (self.strength * random.uniform(0.1, 1.4))
@@ -176,6 +181,12 @@ class Enemy:
             return int(player_health)
 
         elif self.health <= 50:
+
+            pygame.init()
+            crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/potion.wav')
+            crash.play()
+21
+
             print("寶可夢 " + self.name + " " + "使用恢復...")
             print("")
             self.health = self.health + 10
@@ -206,12 +217,11 @@ class Enemy:
 ''')
 
         elif self.name == "喷火龙":
-            time.sleep(1)
 
             pygame.init()
-            crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/pikachu.wav')
+            crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/dragon.wav')
             crash.play()
-
+            time.sleep(1)
             print('''         
 
 ☻/
@@ -219,13 +229,12 @@ class Enemy:
 / \ ♥♥
 ''')
 
-        elif self.name == "雷丘":
-            time.sleep(1)
+        elif self.name == "皮卡丘":
 
             pygame.init()
             crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/pikachu.wav')
             crash.play()
-
+            time.sleep(1)
             print('''                      
 
 ☻/
@@ -233,13 +242,12 @@ class Enemy:
 / \ ♥♥
 ''')
 
-        elif self.name == "火焰猴":
-            time.sleep(1)
+        elif self.name == "皮卡丘":
 
             pygame.init()
             crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/pikachu.wav')
             crash.play()
-
+            time.sleep(1)
             print('''                                   
 ☻/
 /▌♥♥
@@ -280,7 +288,7 @@ class Enemy:
             print("")
 
 
-enemies = [Enemy("傑尼龜", 10, 5, 100), Enemy("喷火龙", 20, 10, 100), Enemy("雷丘", 30, 20, 100), Enemy ("火焰猴", 40, 30, 130)]
+enemies = [Enemy("傑尼龜", 10, 5, 100), Enemy("喷火龙", 20, 10, 100), Enemy("皮卡丘", 30, 20, 100), Enemy ("皮卡丘", 40, 30, 130)]
 
 random_enemy = random.choice(enemies)
 random_enemy.battle_script()
