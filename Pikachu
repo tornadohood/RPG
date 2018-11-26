@@ -4,7 +4,6 @@ import random, time, pygame
 pygame.mixer.init()
 pygame.mixer.music.load("/Users/kchee/Desktop/pokemon/sound/battle.mp3")
 pygame.mixer.music.play(-1)
-pygame.mixer.music.set_volume(pygame.mixer.music.get_volume() - 0.5)
 
 player_health = 100
 
@@ -124,21 +123,95 @@ class Enemy:
                 elif self.health >= 50:
                     print("沒抓到！")
 
-        elif answer == "3":
-            print("正在戰鬥中...不能跑")
-            print("___________________________________________________")
 
         elif answer == "3":
-            time.sleep(1)
-            print("形態:" + str(self.name))
-            time.sleep(1)
-            print("HP:" + str(self.health))
-            time.sleep(1)
-            print("攻擊力:" + str(self.strength))
-            time.sleep(1)
-            print("防禦力:" + str(self.defense))
-            time.sleep(1)
-            print("___________________________________________________")
+
+            print("你要看哪一隻寶可夢? (1.皮卡丘 2.傑尼龜 3.喷火龙 4.雷丘)")
+
+            print("__________________________________________ ")
+
+            answer = input()
+
+            if answer == "1":
+
+                pygame.init()
+
+                crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/fire.wav')
+
+                crash.play()
+
+                time.sleep(1)
+                print("形態:" + str(self.name))
+                time.sleep(1)
+                print("HP:" + str(self.health))
+                time.sleep(1)
+                print("攻擊力:" + str(self.strength))
+                time.sleep(1)
+                print("防禦力:" + str(self.defense))
+                time.sleep(1)
+                print("___________________________________________________")
+
+
+
+            elif answer == "2":
+
+                pygame.init()
+
+                crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/fire.wav')
+
+                crash.play()
+
+                time.sleep(1)
+                print("形態:" + str(self.name))
+                time.sleep(1)
+                print("HP:" + str(self.health))
+                time.sleep(1)
+                print("攻擊力:" + str(self.strength))
+                time.sleep(1)
+                print("防禦力:" + str(self.defense))
+                time.sleep(1)
+                print("___________________________________________________")
+
+
+            elif answer == "3":
+
+                pygame.init()
+
+                crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/fire.wav')
+
+                crash.play()
+
+                time.sleep(1)
+                print("形態:" + str(self.name))
+                time.sleep(1)
+                print("HP:" + str(self.health))
+                time.sleep(1)
+                print("攻擊力:" + str(self.strength))
+                time.sleep(1)
+                print("防禦力:" + str(self.defense))
+                time.sleep(1)
+                print("___________________________________________________")
+
+
+
+            elif answer == "4":
+
+                pygame.init()
+
+                crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/fire.wav')
+
+                crash.play()
+
+                time.sleep(1)
+                print("形態:" + str(self.name))
+                time.sleep(1)
+                print("HP:" + str(self.health))
+                time.sleep(1)
+                print("攻擊力:" + str(self.strength))
+                time.sleep(1)
+                print("防禦力:" + str(self.defense))
+                time.sleep(1)
+                print("___________________________________________________")
 
         elif answer == "4":
             print("正在戰鬥中...不能跑")
@@ -185,7 +258,6 @@ class Enemy:
             pygame.init()
             crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/potion.wav')
             crash.play()
-21
 
             print("寶可夢 " + self.name + " " + "使用恢復...")
             print("")
@@ -211,9 +283,19 @@ class Enemy:
             time.sleep(1)
             print('''              
 
-☻/
-/▌♥♥
-/ \ ♥♥
+▕▔╲┊┊┊┊┊┊┊╱▔▏┊┊┊
+┊╲╱╲┊┊┊┊┊╱╲╱┊┊┊┊
+┊┊╲┈╲▂▂▂╱┈╱┊┊┊╱╲
+┊┊╱┈┈┈┈┈┈┈╲┊┊╱┈┈╲
+┊┊▏▕▆▍▂▕▆▍▕┊╱┈┈┈╱
+┊▕╭╮┈┳┻┳┈╭╮▏╲┈┈╱
+┊┊╲╯┈╰━╯┈╰╱┊╱┈┈╲
+┊┊╱┈┈┈┈┈┈┈╲┊╲┈┈┈╲
+┊▕╲┈▕┈┈┈▏┈╱▏┊╱┈╱
+┊▕┈▔▔┈┈┈▔▔┈▏╱┈╱┊
+┊▕┈┈┈┈┈┈┈┈▕▔┈╱┊┊
+┈┈╲┈┈┈┈┈┈┈╱▔▔┈┈┈
+┈┈▕▂╱▔▔▔╲▂▏┈┈┈┈┈
 ''')
 
         elif self.name == "喷火龙":
@@ -224,9 +306,19 @@ class Enemy:
             time.sleep(1)
             print('''         
 
-☻/
-/▌♥♥
-/ \ ♥♥
+▕▔╲┊┊┊┊┊┊┊╱▔▏┊┊┊
+┊╲╱╲┊┊┊┊┊╱╲╱┊┊┊┊
+┊┊╲┈╲▂▂▂╱┈╱┊┊┊╱╲
+┊┊╱┈┈┈┈┈┈┈╲┊┊╱┈┈╲
+┊┊▏▕▆▍▂▕▆▍▕┊╱┈┈┈╱
+┊▕╭╮┈┳┻┳┈╭╮▏╲┈┈╱
+┊┊╲╯┈╰━╯┈╰╱┊╱┈┈╲
+┊┊╱┈┈┈┈┈┈┈╲┊╲┈┈┈╲
+┊▕╲┈▕┈┈┈▏┈╱▏┊╱┈╱
+┊▕┈▔▔┈┈┈▔▔┈▏╱┈╱┊
+┊▕┈┈┈┈┈┈┈┈▕▔┈╱┊┊
+┈┈╲┈┈┈┈┈┈┈╱▔▔┈┈┈
+┈┈▕▂╱▔▔▔╲▂▏┈┈┈┈┈
 ''')
 
         elif self.name == "皮卡丘":
@@ -237,9 +329,19 @@ class Enemy:
             time.sleep(1)
             print('''                      
 
-☻/
-/▌♥♥
-/ \ ♥♥
+▕▔╲┊┊┊┊┊┊┊╱▔▏┊┊┊
+┊╲╱╲┊┊┊┊┊╱╲╱┊┊┊┊
+┊┊╲┈╲▂▂▂╱┈╱┊┊┊╱╲
+┊┊╱┈┈┈┈┈┈┈╲┊┊╱┈┈╲
+┊┊▏▕▆▍▂▕▆▍▕┊╱┈┈┈╱
+┊▕╭╮┈┳┻┳┈╭╮▏╲┈┈╱
+┊┊╲╯┈╰━╯┈╰╱┊╱┈┈╲
+┊┊╱┈┈┈┈┈┈┈╲┊╲┈┈┈╲
+┊▕╲┈▕┈┈┈▏┈╱▏┊╱┈╱
+┊▕┈▔▔┈┈┈▔▔┈▏╱┈╱┊
+┊▕┈┈┈┈┈┈┈┈▕▔┈╱┊┊
+┈┈╲┈┈┈┈┈┈┈╱▔▔┈┈┈
+┈┈▕▂╱▔▔▔╲▂▏┈┈┈┈┈
 ''')
 
         elif self.name == "皮卡丘":
@@ -248,10 +350,21 @@ class Enemy:
             crash = pygame.mixer.Sound('/Users/kchee/Desktop/pokemon/sound/pikachu.wav')
             crash.play()
             time.sleep(1)
-            print('''                                   
-☻/
-/▌♥♥
-/ \ ♥♥
+            print('''         
+                                      
+▕▔╲┊┊┊┊┊┊┊╱▔▏┊┊┊
+┊╲╱╲┊┊┊┊┊╱╲╱┊┊┊┊
+┊┊╲┈╲▂▂▂╱┈╱┊┊┊╱╲
+┊┊╱┈┈┈┈┈┈┈╲┊┊╱┈┈╲
+┊┊▏▕▆▍▂▕▆▍▕┊╱┈┈┈╱
+┊▕╭╮┈┳┻┳┈╭╮▏╲┈┈╱
+┊┊╲╯┈╰━╯┈╰╱┊╱┈┈╲
+┊┊╱┈┈┈┈┈┈┈╲┊╲┈┈┈╲
+┊▕╲┈▕┈┈┈▏┈╱▏┊╱┈╱
+┊▕┈▔▔┈┈┈▔▔┈▏╱┈╱┊
+┊▕┈┈┈┈┈┈┈┈▕▔┈╱┊┊
+┈┈╲┈┈┈┈┈┈┈╱▔▔┈┈┈
+┈┈▕▂╱▔▔▔╲▂▏┈┈┈┈┈
 ''')
 
         time.sleep(1)
