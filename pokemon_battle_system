@@ -1,7 +1,7 @@
 import random, time, pygame
 
 pygame.mixer.init()
-pygame.mixer.music.load('music/battle.mp3')
+pygame.mixer.music.load('sound.effect/battle.mp3')
 pygame.mixer.music.play(-1)
 
 player_health = 100
@@ -9,29 +9,31 @@ player_health = 100
 
 class Enemy:
 
-    def __init__(self, name, strength, defense, health):
+    def __init__(self, name, strength, defense, health,attack, speed):
         self.name = name
         self.strength = strength
         self.defense = defense
         self.health = health
+        self.attack = attack
+        self.speed = speed
 
     def attack_enemy(self):
 
         global player_health
         time.sleep(1)
-        print("你接下來要作什麼? (1.攻擊 2.背包 3.寶可夢 4.逃跑）")
+        print("你接下來要作什麼? (1.進攻 2.背包 3.防禦 4.逃跑 ）")
         print("______________________________________________")
         answer = input()
 
         if answer == "1":
-            print("你要使用什麼攻擊? (1.火攻 2.水攻 3.雷攻 4.透視)")
+            print("你要使用什麼攻擊? (1.火焰 2.水槍 3.暴風 4.念力)")
             print("__________________________________________ ")
             answer = input()
 
             if answer == "1":
 
                 pygame.init()
-                crash = pygame.mixer.Sound('music/fire.wav')
+                crash = pygame.mixer.Sound('sound.effect/fire.wav')
                 crash.play()
 
                 self.health = self.health - (random.randint(100, 300) / (random.uniform(0, 1) * self.defense))
@@ -40,7 +42,7 @@ class Enemy:
             elif answer == "2":
 
                 pygame.init()
-                crash = pygame.mixer.Sound('music/water.wav')
+                crash = pygame.mixer.Sound('sound.effect/water.wav')
                 crash.play()
 
                 self.health = self.health - (random.randint(20, 100) / (random.uniform(0, 1) * self.defense))
@@ -49,7 +51,7 @@ class Enemy:
             elif answer == "3":
 
                 pygame.init()
-                crash = pygame.mixer.Sound('music/lighting.wav')
+                crash = pygame.mixer.Sound('sound.effect/lighting.wav')
                 crash.play()
 
                 self.health = self.health - (random.randint(50, 100) / (random.uniform(0, 1) * self.defense))
@@ -58,17 +60,21 @@ class Enemy:
             elif answer == "4":
 
                 pygame.init()
-                crash = pygame.mixer.Sound('music/scan2.wav')
+                crash = pygame.mixer.Sound('sound.effect/scan2.wav')
                 crash.play(4)
 
                 time.sleep(1)
                 print("形態:" + str(self.name))
                 time.sleep(1)
-                print("HP:" + str(self.health))
+                print("最大CP:" + str(self.health))
                 time.sleep(1)
-                print("攻擊力:" + str(self.strength))
+                print("攻擊力:" + str(self.attack))
                 time.sleep(1)
                 print("防禦力:" + str(self.defense))
+                time.sleep(1)
+                print("速度:" + str(self.speed))
+                time.sleep(1)
+                print("體力:" + str(self.strength))
                 time.sleep(1)
                 print("___________________________________________________")
 
@@ -79,7 +85,7 @@ class Enemy:
 
             if answer == "1":
                 pygame.init()
-                crash = pygame.mixer.Sound('music/potion.wav')
+                crash = pygame.mixer.Sound('sound.effect/potion.wav')
                 crash.play()
 
                 player_health = player_health + 50
@@ -87,7 +93,7 @@ class Enemy:
 
             if answer == "2":
                 pygame.init()
-                crash = pygame.mixer.Sound('music/potion.wav')
+                crash = pygame.mixer.Sound('sound.effect/potion.wav')
                 crash.play()
 
                 player_health = player_health + 100
@@ -96,7 +102,7 @@ class Enemy:
             if answer == "3":
 
                 pygame.init()
-                crash = pygame.mixer.Sound('music/pokeball.wav')
+                crash = pygame.mixer.Sound('sound.effect/pokeball.wav')
                 crash.play(3)
 
                 print("寶貝球投出.....")
@@ -111,7 +117,7 @@ class Enemy:
             if answer == "4":
 
                 pygame.init()
-                crash = pygame.mixer.Sound('music/pokeball.wav')
+                crash = pygame.mixer.Sound('sound.effect/pokeball.wav')
                 crash.play(3)
 
                 print("寶貝球投出.....")
@@ -126,92 +132,11 @@ class Enemy:
 
         elif answer == "3":
 
-            print("你要看哪一隻寶可夢? (1.皮卡丘 2.傑尼龜 3.喷火龙 4.雷丘)")
+            print("防禦中....")
 
-            print("__________________________________________ ")
+            self.health = self.health - (random.randint(100, 100) / (random.uniform(1, 1) * self.defense))
+            self.health = int(self.health)
 
-            answer = input()
-
-            if answer == "1":
-
-                pygame.init()
-
-                crash = pygame.mixer.Sound('music/fire.wav')
-
-                crash.play()
-
-                time.sleep(1)
-                print("形態:" + str(self.name))
-                time.sleep(1)
-                print("HP:" + str(self.health))
-                time.sleep(1)
-                print("攻擊力:" + str(self.strength))
-                time.sleep(1)
-                print("防禦力:" + str(self.defense))
-                time.sleep(1)
-                print("___________________________________________________")
-
-
-
-            elif answer == "2":
-
-                pygame.init()
-
-                crash = pygame.mixer.Sound('music/fire.wav')
-
-                crash.play()
-
-                time.sleep(1)
-                print("形態:" + str(self.name))
-                time.sleep(1)
-                print("HP:" + str(self.health))
-                time.sleep(1)
-                print("攻擊力:" + str(self.strength))
-                time.sleep(1)
-                print("防禦力:" + str(self.defense))
-                time.sleep(1)
-                print("___________________________________________________")
-
-
-            elif answer == "3":
-
-                pygame.init()
-
-                crash = pygame.mixer.Sound('music/fire.wav')
-
-                crash.play()
-
-                time.sleep(1)
-                print("形態:" + str(self.name))
-                time.sleep(1)
-                print("HP:" + str(self.health))
-                time.sleep(1)
-                print("攻擊力:" + str(self.strength))
-                time.sleep(1)
-                print("防禦力:" + str(self.defense))
-                time.sleep(1)
-                print("___________________________________________________")
-
-
-
-            elif answer == "4":
-
-                pygame.init()
-
-                crash = pygame.mixer.Sound('music/fire.wav')
-
-                crash.play()
-
-                time.sleep(1)
-                print("形態:" + str(self.name))
-                time.sleep(1)
-                print("HP:" + str(self.health))
-                time.sleep(1)
-                print("攻擊力:" + str(self.strength))
-                time.sleep(1)
-                print("防禦力:" + str(self.defense))
-                time.sleep(1)
-                print("___________________________________________________")
 
         elif answer == "4":
             print("正在戰鬥中...不能跑")
@@ -241,7 +166,7 @@ class Enemy:
         if self.health >= 50:
 
             pygame.init()
-            crash = pygame.mixer.Sound('music/lighting.wav')
+            crash = pygame.mixer.Sound('sound.effect/lighting.wav')
             crash.play()
 
             print("寶可夢 " + self.name + " " + "使用雷擊...")
@@ -249,14 +174,22 @@ class Enemy:
             player_health = player_health - (self.strength * random.uniform(0.1, 1.4))
             player_health = int(player_health)
             time.sleep(1)
-            print("你的生命值 " + str(int(player_health)))
-            print("")
-            return int(player_health)
+
+            if player_health > 0:
+
+                print("你的生命值 " + str(int(player_health)))
+                print("")
+                return int(player_health)
+
+            elif player_health <= 0:
+
+                print("你的生命值 " + str(0))
+                print("")
 
         elif self.health <= 50:
 
             pygame.init()
-            crash = pygame.mixer.Sound('music/potion.wav')
+            crash = pygame.mixer.Sound('sound.effect/potion.wav')
             crash.play()
 
             print("寶可夢 " + self.name + " " + "使用恢復...")
@@ -277,7 +210,7 @@ class Enemy:
         if self.name == "傑尼龜":
 
             pygame.init()
-            crash = pygame.mixer.Sound('music/squirtle2.wav')
+            crash = pygame.mixer.Sound('sound.effect/squirtle2.wav')
             crash.play()
 
             time.sleep(1)
@@ -288,7 +221,7 @@ class Enemy:
         elif self.name == "喷火龙":
 
             pygame.init()
-            crash = pygame.mixer.Sound('music/dragon.wav')
+            crash = pygame.mixer.Sound('sound.effect/dragon.wav')
             crash.play()
             time.sleep(1)
             print('''
@@ -298,7 +231,7 @@ class Enemy:
         elif self.name == "皮卡丘":
 
             pygame.init()
-            crash = pygame.mixer.Sound('music/pikachu.wav')
+            crash = pygame.mixer.Sound('sound.effect/pikachu.wav')
             crash.play()
             time.sleep(1)
             print('''
@@ -307,7 +240,7 @@ class Enemy:
         elif self.name == "皮卡丘":
 
             pygame.init()
-            crash = pygame.mixer.Sound('music/pikachu.wav')
+            crash = pygame.mixer.Sound('sound.effect/pikachu.wav')
             crash.play()
             time.sleep(1)
             print('''
@@ -324,7 +257,7 @@ class Enemy:
                 break
         if self.health <= 0:
             pygame.mixer.init()
-            pygame.mixer.music.load('music/victory.mp3')
+            pygame.mixer.music.load('sound.effect/victory.mp3')
             pygame.mixer.music.play(-1)
 
             time.sleep(1)
@@ -340,7 +273,7 @@ class Enemy:
 
         if player_health <= 0:
             pygame.mixer.init()
-            pygame.mixer.music.load('music/lose.mp3')
+            pygame.mixer.music.load('sound.effect/lose.mp3')
             pygame.mixer.music.play(-1)
             time.sleep(1)
             print("你輸了")
@@ -348,7 +281,7 @@ class Enemy:
             print("")
 
 
-enemies = [Enemy("傑尼龜", 10, 5, 100), Enemy("喷火龙", 20, 10, 100), Enemy("皮卡丘", 30, 20, 100), Enemy("皮卡丘", 40, 30, 130)]
+enemies = [Enemy("傑尼龜", 10, 5, 100, 20, 5), Enemy("喷火龙", 20, 10, 100, 20, 2), Enemy("皮卡丘", 30, 20, 100, 10, 50), Enemy("皮卡丘", 40, 30, 130, 100, 6)]
 
 random_enemy = random.choice(enemies)
 random_enemy.battle_script()
