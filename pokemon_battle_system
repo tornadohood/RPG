@@ -1,11 +1,6 @@
 import random, time, pygame
 
-pygame.mixer.init()
-pygame.mixer.music.load('sound.effect/battle.mp3')
-pygame.mixer.music.play(-1)
-
 player_health = 100
-
 
 class Enemy:
 
@@ -281,6 +276,7 @@ class Enemy:
             print("獲得超級寶貝球 x " + str(random.randint(1, 3)))
             time.sleep(1)
             print("")
+            print("")
 
         if player_health <= 0:
             pygame.mixer.init()
@@ -290,21 +286,31 @@ class Enemy:
             print("你輸了")
             time.sleep(1)
             print("")
+            print("")
 
 
 
 enemies = [Enemy("傑尼龜", 10, 5, 100, 20, 1,), Enemy("喷火龙", 20, 10, 100, 20, 1), Enemy("皮卡丘", 30, 20, 100, 10, 1), Enemy("皮卡丘", 40, 30, 130, 100, 1)]
 
 def main():
-    print ('Welcome')
+
+    pygame.mixer.init()
+    pygame.mixer.music.load('sound.effect/battle.mp3')
+    pygame.mixer.music.play(-1)
 
     while True:
         random_enemy = random.choice(enemies)
         random_enemy.battle_script()
 
-        play_again = input('Play again? y/n:') == 'y'
+        play_again = input('在玩一次？ y/n:') == 'y'
+
+        pygame.mixer.init()
+        pygame.mixer.music.load('sound.effect/battle.mp3')
+        pygame.mixer.music.play(-1)
+
         if not play_again:
             return #Leave main
 
 main()
+
 
