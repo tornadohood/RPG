@@ -220,10 +220,10 @@ class Enemy:
 
 ''')
 
-        elif self.name == "喷火龙":
+        elif self.name == "皮丘":
 
             pygame.init()
-            crash = pygame.mixer.Sound('sound.effect/dragon.wav')
+            crash = pygame.mixer.Sound('sound.effect/pikachu.wav')
             crash.play()
 
             time.sleep(1)
@@ -241,7 +241,7 @@ class Enemy:
             print('''
 ''')
 
-        elif self.name == "皮卡丘":
+        elif self.name == "雷丘":
 
             pygame.init()
             crash = pygame.mixer.Sound('sound.effect/pikachu.wav')
@@ -290,7 +290,7 @@ class Enemy:
 
 
 
-enemies = [Enemy("傑尼龜", 10, 5, 100, 20, 1,), Enemy("喷火龙", 20, 10, 100, 20, 1), Enemy("皮卡丘", 30, 20, 100, 10, 1), Enemy("皮卡丘", 40, 30, 130, 100, 1)]
+enemies = [Enemy("傑尼龜", 10, 5, 100, 20, 1,), Enemy("皮丘", 20, 10, 100, 20, 1), Enemy("皮卡丘", 30, 20, 100, 10, 1), Enemy("雷丘", 40, 30, 130, 100, 1)]
 
 def main():
 
@@ -312,5 +312,6 @@ def main():
             return #Leave main
 
 main()
+
 
 
